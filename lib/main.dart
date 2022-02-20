@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_joovlin/screens/create_task_screen.dart';
 import 'package:todo_joovlin/screens/splash_screen.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.id,
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
+        CreateTaskScreen.id: (context) => const CreateTaskScreen(),
       },
     );
   }

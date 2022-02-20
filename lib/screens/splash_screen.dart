@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_joovlin/screens/create_task_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String id = 'splash_screen';
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Text(
               'Todo List',
               style: TextStyle(
-                  fontFamily: 'CircusStd',
+                  fontFamily: 'CircularStd',
                   fontSize: 18.0,
                   fontWeight: FontWeight.w400,
                   color: Color.fromRGBO(255, 255, 255, 1)),
@@ -28,7 +29,9 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, CreateTaskScreen.id);
+        },
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
