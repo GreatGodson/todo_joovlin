@@ -14,6 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
+        toolbarHeight: 34.0,
       ),
     );
   }
