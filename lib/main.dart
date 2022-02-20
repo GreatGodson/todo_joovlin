@@ -13,6 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromRGBO(116, 45, 221, 1),
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color.fromRGBO(116, 45, 221, 1),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.id,

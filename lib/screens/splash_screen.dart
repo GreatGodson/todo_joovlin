@@ -13,8 +13,56 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
-        toolbarHeight: 34.0,
+        title: Row(
+          children: const [
+            Text(
+              'Todo List',
+              style: TextStyle(
+                  fontFamily: 'CircusStd',
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w400,
+                  color: Color.fromRGBO(255, 255, 255, 1)),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {},
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Todo List is empty',
+                style: TextStyle(
+                    fontSize: 24.0,
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'CircularStd'),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.01,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Create a task',
+                style: TextStyle(
+                    fontSize: 18.0,
+                    color: Color.fromRGBO(119, 119, 119, 1),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'CircularStd'),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
