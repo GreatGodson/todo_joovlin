@@ -28,7 +28,12 @@ class TextFieldWidget extends StatelessWidget {
       ),
       child: TextField(
         onChanged: onChanged,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(
+          color: Color.fromRGBO(6, 5, 27, 1),
+          fontFamily: 'Helvetica',
+          fontSize: 14.0,
+          fontWeight: FontWeight.w400,
+        ),
         decoration: InputDecoration(
           border: InputBorder.none,
           fillColor: const Color.fromRGBO(245, 245, 245, 1),
