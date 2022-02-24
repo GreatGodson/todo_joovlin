@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo_joovlin/screens/create_task_screen.dart';
+import 'package:todo_joovlin/screens/edit_task_screen.dart';
 import 'package:todo_joovlin/screens/splash_screen.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_joovlin/main.dart';
 
 void main() {
   final HttpLink httpLink = HttpLink(
@@ -11,34 +14,16 @@ void main() {
             "JG7vDm15n1fVT2QhwYNyDFJJmm5iQKIea3H0tVpYnNV735Wa2ms3msthBGquM2sm",
       });
 
-  // const Bearer =
-  //     "JG7vDm15n1fVT2QhwYNyDFJJmm5iQKIea3H0tVpYnNV735Wa2ms3msthBGquM2sm";
-  // String AuthLink = "$Bearer $httpLink";
-  // String apiToken =
-  //     "JG7vDm15n1fVT2QhwYNyDFJJmm5iQKIea3H0tVpYnNV735Wa2ms3msthBGquM2sm";
-  // Map<String, String> get headers => {
-  //   'Authorization': 'Bearer $apiToken',
-  // 'Content-Type': 'application/json',
-  // };
-
   ValueNotifier<GraphQLClient> client = ValueNotifier(GraphQLClient(
     link: httpLink,
     cache: GraphQLCache(store: InMemoryStore()),
   ));
 
-  // Map<String, String> get headers => {
-  //   'Authorization': 'Bearer $apiToken',
-  // 'Content-Type': 'application/json',
-  // };
-  //
-  // client. apiToken = {
-  //   "Authorization": "Bearer <JWT_TOKEM>",
-  //   "Another_Header_Key": "Another Header Value"
-  // }
-  //client.apiToken = '<>';
-
   var app = GraphQLProvider(client: client, child: const MyApp());
-  runApp(app);
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => Game())],
+    child: app,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -57,10 +42,15 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
+
       initialRoute: SplashScreen.id,
+      // define routes and screens for easy navigation
       routes: {
-        SplashScreen.id: (context) => const SplashScreen(),
-        CreateTaskScreen.id: (context) => const CreateTaskScreen(),
+        SplashScreen.id: (context) => const SplashScreen(
+              taskId: "gu",
+            ),
+        CreateTaskScreen.id: (context) => CreateTaskScreen(),
+        UpdateTaskScreen.id: (context) => const UpdateTaskScreen(),
       },
     );
   }
