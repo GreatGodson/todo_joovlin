@@ -4,7 +4,6 @@ import 'package:todo_joovlin/screens/edit_task_screen.dart';
 import 'package:todo_joovlin/screens/splash_screen.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_joovlin/main.dart';
 
 void main() {
   final HttpLink httpLink = HttpLink(
@@ -49,7 +48,7 @@ class MyApp extends StatelessWidget {
         SplashScreen.id: (context) => const SplashScreen(
               taskId: "gu",
             ),
-        CreateTaskScreen.id: (context) => CreateTaskScreen(),
+        CreateTaskScreen.id: (context) => const CreateTaskScreen(),
         UpdateTaskScreen.id: (context) => const UpdateTaskScreen(),
       },
     );

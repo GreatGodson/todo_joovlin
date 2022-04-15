@@ -4,7 +4,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:todo_joovlin/components/constatnts.dart';
 import 'package:todo_joovlin/screens/edit_task_screen.dart';
 import 'package:todo_joovlin/response/response.dart';
-import 'package:provider/provider.dart';
+
 import 'dart:async';
 import 'dart:developer';
 
@@ -164,7 +164,6 @@ class _SplashScreenState extends State<SplashScreen> {
                                           activeColor: Colors.green,
                                           onChanged: (value) {
                                             setState(() {
-                                              print(value);
                                               taskList[index].isCompleted =
                                                   !taskList[index].isCompleted;
                                             });
